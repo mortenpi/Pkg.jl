@@ -49,8 +49,11 @@ PkgF = "^0.0"   # [0.0.0, 0.1.0)
 PkgG = "^0"     # [0.0.0, 1.0.0)
 ```
 
-While the semver specification says that all versions with a major version of 0 are incompatible with each other, we have made that choice that
-a version given as `0.a.b` is considered compatible with `0.a.c` if `a != 0` and  `c >= b`.
+!!! note "Deviation from SemVer"
+    While the semver specification says that all versions with a major version of 0 are incompatible with each other, we have made that choice that a version given as `0.a.b` is considered compatible with `0.a.c` if `a != 0` and  `c >= b`.
+    
+    The compatible patch releases are considered to be compatible in the normal minor version sense, i.e. you are allowed to add new functionality, deprecate features etc. in patch releases if the major version is 0.
+    In other words, the promise you make is that code written for `0.a.b` should work on `0.a.c`, but not necessarily the other way around.
 
 ### Tilde specifiers
 
